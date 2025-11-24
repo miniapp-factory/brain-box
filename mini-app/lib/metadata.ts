@@ -1,3 +1,3 @@
-export const title = "Mini App Factory App";
-export const description = "This app was created by the Mini App Factory!";
+export const title = "Block Grid Game";
+export const description = "A simple block placement game with scoring and line clearing.";
 export const url = process.env.NEXT_PUBLIC_URL;
