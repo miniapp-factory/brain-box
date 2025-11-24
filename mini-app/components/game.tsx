@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import Grid from './grid';
 import Shape from './shape';
 
-const SHAPES = [
+const SHAPES: [number, number][][] = [
   [[0,0]],
   [[0,0],[1,0]],
   [[0,0],[1,0],[2,0]],
@@ -13,8 +13,8 @@ const SHAPES = [
   [[0,0],[1,0],[2,0],[3,0]],
 ];
 
-function randomShapes() {
-  const shapes = [];
+function randomShapes(): { id: number; cells: [number, number][] }[] {
+  const shapes: { id: number; cells: [number, number][] }[] = [];
   for (let i = 0; i < 3; i++) {
     const cells = SHAPES[Math.floor(Math.random() * SHAPES.length)];
     shapes.push({ id: i, cells });
@@ -96,7 +96,7 @@ export default function Game() {
 
   useEffect(() => {
     if (!gameOver) checkGameOver();
-  }, [grid, shapes, gameOver]);
+  }, [grid, shapes, gameOver, checkGameOver]);
 
   const reset = () => {
     setGrid(Array(10).fill(null).map(() => Array(10).fill(false)));
